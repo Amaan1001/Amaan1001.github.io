@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com https://fonts.gstatic.com;">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Amaan Farooque Shaikh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -10,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
@@ -61,7 +59,7 @@
   /* HERO */
   .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;position:relative;overflow:hidden}
   .hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 3rem 5rem 3rem;position:relative;z-index:2}
-  .hero-right{position:relative;background:#1E1208;border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem;overflow:hidden}
+  .hero-right{position:relative;background:#C44B2A;border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem;overflow:hidden}
 
   /* MARQUEE */
   .marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:12px 0;margin:2.5rem 0;background:var(--sand2)}
@@ -124,7 +122,7 @@
   .projects-inner{max-width:1100px;margin:0 auto;padding:7rem 3rem}
   .proj-featured{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border2);border-radius:20px;overflow:hidden;margin-bottom:1.5rem;background:var(--sand);position:relative}
   .proj-featured-left{padding:2.5rem;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:1.2rem}
-  .proj-featured-right{padding:2.5rem;background:#1E1208;display:flex;flex-direction:column;gap:1rem}
+  .proj-featured-right{padding:2.5rem;background:#C44B2A;display:flex;flex-direction:column;gap:1rem}
   .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
   .proj-card{background:var(--sand);border:1px solid var(--border);border-radius:16px;padding:1.8rem;display:flex;flex-direction:column;gap:1rem;transition:all 0.3s;position:relative;overflow:hidden}
   .proj-card:hover{transform:translateY(-4px);border-color:var(--border2);box-shadow:0 12px 40px rgba(26,24,20,0.1)}
@@ -238,30 +236,68 @@
 </head>
 <body>
 <div id="root"></div>
-<script type="text/babel">
-
-const { useState, useEffect, useRef } = React;
-
+<script>
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+var _React = React,
+  useState = _React.useState,
+  useEffect = _React.useEffect,
+  useRef = _React.useRef;
 function TypingBadge() {
-  const roles = ['AI Systems Engineer','Software Engineer','Infrastructure Engineer'];
-  const [idx, setIdx] = useState(0);
-  const [displayed, setDisplayed] = useState('');
-  const [deleting, setDeleting] = useState(false);
-  const [pause, setPause] = useState(false);
-  useEffect(() => {
-    if (pause) { const t = setTimeout(() => setPause(false), 1400); return () => clearTimeout(t); }
-    const target = roles[idx];
+  var roles = ['AI Systems Engineer', 'Software Engineer', 'Infrastructure Engineer'];
+  var _useState = useState(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    idx = _useState2[0],
+    setIdx = _useState2[1];
+  var _useState3 = useState(''),
+    _useState4 = _slicedToArray(_useState3, 2),
+    displayed = _useState4[0],
+    setDisplayed = _useState4[1];
+  var _useState5 = useState(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    deleting = _useState6[0],
+    setDeleting = _useState6[1];
+  var _useState7 = useState(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    pause = _useState8[0],
+    setPause = _useState8[1];
+  useEffect(function () {
+    if (pause) {
+      var t = setTimeout(function () {
+        return setPause(false);
+      }, 1400);
+      return function () {
+        return clearTimeout(t);
+      };
+    }
+    var target = roles[idx];
     if (!deleting && displayed.length < target.length) {
-      const t = setTimeout(() => setDisplayed(target.slice(0, displayed.length + 1)), 55);
-      return () => clearTimeout(t);
+      var _t = setTimeout(function () {
+        return setDisplayed(target.slice(0, displayed.length + 1));
+      }, 55);
+      return function () {
+        return clearTimeout(_t);
+      };
     }
     if (!deleting && displayed.length === target.length) {
-      const t = setTimeout(() => setDeleting(true), 1800);
-      return () => clearTimeout(t);
+      var _t2 = setTimeout(function () {
+        return setDeleting(true);
+      }, 1800);
+      return function () {
+        return clearTimeout(_t2);
+      };
     }
     if (deleting && displayed.length > 0) {
-      const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 32);
-      return () => clearTimeout(t);
+      var _t3 = setTimeout(function () {
+        return setDisplayed(displayed.slice(0, -1));
+      }, 32);
+      return function () {
+        return clearTimeout(_t3);
+      };
     }
     if (deleting && displayed.length === 0) {
       setDeleting(false);
@@ -269,408 +305,938 @@ function TypingBadge() {
       setPause(true);
     }
   }, [displayed, deleting, pause, idx]);
-  return <div className="typing">{displayed}</div>;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "typing"
+  }, displayed);
 }
-
 function Cursor() {
-  const dotRef = useRef(null);
-  const ringRef = useRef(null);
-  const [hovered, setHovered] = useState(false);
-  useEffect(() => {
-    const move = e => {
-      if(dotRef.current) { dotRef.current.style.left = e.clientX+'px'; dotRef.current.style.top = e.clientY+'px'; }
-      if(ringRef.current) { ringRef.current.style.left = e.clientX+'px'; ringRef.current.style.top = e.clientY+'px'; }
+  var dotRef = useRef(null);
+  var ringRef = useRef(null);
+  var _useState9 = useState(false),
+    _useState0 = _slicedToArray(_useState9, 2),
+    hovered = _useState0[0],
+    setHovered = _useState0[1];
+  useEffect(function () {
+    var move = function move(e) {
+      if (dotRef.current) {
+        dotRef.current.style.left = e.clientX + 'px';
+        dotRef.current.style.top = e.clientY + 'px';
+      }
+      if (ringRef.current) {
+        ringRef.current.style.left = e.clientX + 'px';
+        ringRef.current.style.top = e.clientY + 'px';
+      }
     };
-    const over = e => { if(e.target.matches('a,button,.skill-tab,.skill-chip,.proj-card,.clink,.about-tile,.proj-link,.nav-links a')) setHovered(true); };
-    const out = () => setHovered(false);
+    var over = function over(e) {
+      if (e.target.matches('a,button,.skill-tab,.skill-chip,.proj-card,.clink,.about-tile,.proj-link,.nav-links a')) setHovered(true);
+    };
+    var out = function out() {
+      return setHovered(false);
+    };
     window.addEventListener('mousemove', move);
     document.addEventListener('mouseover', over);
     document.addEventListener('mouseout', out);
-    return () => { window.removeEventListener('mousemove', move); document.removeEventListener('mouseover', over); document.removeEventListener('mouseout', out); };
+    return function () {
+      window.removeEventListener('mousemove', move);
+      document.removeEventListener('mouseover', over);
+      document.removeEventListener('mouseout', out);
+    };
   }, []);
-  return (
-    <>
-      <div ref={dotRef} className="cursor" style={{position:'fixed',zIndex:9999,pointerEvents:'none',left:0,top:0}}>
-        <div className="cursor-dot"></div>
-      </div>
-      <div ref={ringRef} className="cursor" style={{position:'fixed',zIndex:9998,pointerEvents:'none',left:0,top:0}}>
-        <div className={`cursor-ring${hovered?' hovered':''}`}></div>
-      </div>
-    </>
-  );
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    ref: dotRef,
+    className: "cursor",
+    style: {
+      position: 'fixed',
+      zIndex: 9999,
+      pointerEvents: 'none',
+      left: 0,
+      top: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cursor-dot"
+  })), /*#__PURE__*/React.createElement("div", {
+    ref: ringRef,
+    className: "cursor",
+    style: {
+      position: 'fixed',
+      zIndex: 9998,
+      pointerEvents: 'none',
+      left: 0,
+      top: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cursor-ring".concat(hovered ? ' hovered' : '')
+  })));
 }
-
 function useReveal() {
-  useEffect(() => {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal,.reveal-l').forEach(el => obs.observe(el));
-    return () => obs.disconnect();
+  useEffect(function () {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) e.target.classList.add('in');
+      });
+    }, {
+      threshold: 0.1
+    });
+    document.querySelectorAll('.reveal,.reveal-l').forEach(function (el) {
+      return obs.observe(el);
+    });
+    return function () {
+      return obs.disconnect();
+    };
   }, []);
 }
-
-const skillCategories = {
-  'AI & LLMs': { color:'rust', items:['LangChain','OpenAI','RAG Pipelines','LLM Agents','MCP (Model Context Protocol)','Prompt Engineering','Vector Search','Model Architecture','FastMCP'] },
-  'Languages': { color:'rust', items:['Java','Python','Go','TypeScript','JavaScript','SQL','Groovy','C'] },
-  'Backend': { color:'rust', items:['Spring Boot','Spring Data JPA','FastAPI','Node.js','GraphQL','REST','WebSocket'] },
-  'Cloud & Infra': { color:'teal', items:['AWS Lambda','AWS RDS','ECS / EKS','Docker','Kubernetes','Terraform','Ansible'] },
-  'Data & Messaging': { color:'teal', items:['Apache Kafka','Elasticsearch','Redis','PostgreSQL','TimescaleDB','MongoDB'] },
-  'Observability': { color:'gold', items:['Prometheus','Grafana','ELK Stack','AWS CloudWatch'] },
+var skillCategories = {
+  'AI & LLMs': {
+    color: 'rust',
+    items: ['LangChain', 'OpenAI', 'RAG Pipelines', 'LLM Agents', 'MCP (Model Context Protocol)', 'Prompt Engineering', 'Vector Search', 'Model Architecture', 'FastMCP']
+  },
+  'Languages': {
+    color: 'rust',
+    items: ['Java', 'Python', 'Go', 'TypeScript', 'JavaScript', 'SQL', 'Groovy', 'C']
+  },
+  'Backend': {
+    color: 'rust',
+    items: ['Spring Boot', 'Spring Data JPA', 'FastAPI', 'Node.js', 'GraphQL', 'REST', 'WebSocket']
+  },
+  'Cloud & Infra': {
+    color: 'teal',
+    items: ['AWS Lambda', 'AWS RDS', 'ECS / EKS', 'Docker', 'Kubernetes', 'Terraform', 'Ansible']
+  },
+  'Data & Messaging': {
+    color: 'teal',
+    items: ['Apache Kafka', 'Elasticsearch', 'Redis', 'PostgreSQL', 'TimescaleDB', 'MongoDB']
+  },
+  'Observability': {
+    color: 'gold',
+    items: ['Prometheus', 'Grafana', 'ELK Stack', 'AWS CloudWatch']
+  }
 };
-
 function Skills() {
-  const [active, setActive] = useState('AI & LLMs');
-  const cat = skillCategories[active];
-  return (
-    <section id="skills" style={{background:'var(--sand)'}}>
-      <div className="skills-wrap">
-        <div className="sec-header reveal">
-          <div className="sec-num">02 — Technical Skills</div>
-          <h2 className="sec-title">Two pillars, <em>one engineer</em>.</h2>
-          <p className="sec-sub">AI & LLM tooling on one side. Backend and Cloud infrastructure on the other. Click to explore.</p>
-        </div>
-        <div className="skills-tabs reveal">
-          {Object.keys(skillCategories).map(k => (
-            <button key={k} className={`skill-tab${active===k?' active':''}`} onClick={() => setActive(k)}>{k}</button>
-          ))}
-        </div>
-        <div className="skill-grid reveal">
-          {cat.items.map((s,i) => (
-            <div key={s} className={`skill-chip ${cat.color}`} style={{animationDelay:`${i*0.04}s`,animation:'fadeUp 0.4s ease both'}}>{s}</div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  var _useState1 = useState('AI & LLMs'),
+    _useState10 = _slicedToArray(_useState1, 2),
+    active = _useState10[0],
+    setActive = _useState10[1];
+  var cat = skillCategories[active];
+  return /*#__PURE__*/React.createElement("section", {
+    id: "skills",
+    style: {
+      background: 'var(--sand)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "skills-wrap"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sec-header reveal"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sec-num"
+  }, "02 \u2014 Technical Skills"), /*#__PURE__*/React.createElement("h2", {
+    className: "sec-title"
+  }, "Two pillars, ", /*#__PURE__*/React.createElement("em", null, "one engineer"), "."), /*#__PURE__*/React.createElement("p", {
+    className: "sec-sub"
+  }, "AI & LLM tooling on one side. Backend and Cloud infrastructure on the other. Click to explore.")), /*#__PURE__*/React.createElement("div", {
+    className: "skills-tabs reveal"
+  }, Object.keys(skillCategories).map(function (k) {
+    return /*#__PURE__*/React.createElement("button", {
+      key: k,
+      className: "skill-tab".concat(active === k ? ' active' : ''),
+      onClick: function onClick() {
+        return setActive(k);
+      }
+    }, k);
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "skill-grid reveal"
+  }, cat.items.map(function (s, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: s,
+      className: "skill-chip ".concat(cat.color),
+      style: {
+        animationDelay: "".concat(i * 0.04, "s"),
+        animation: 'fadeUp 0.4s ease both'
+      }
+    }, s);
+  }))));
 }
-
 function Projects() {
-  return (
-    <div className="projects-wrap" id="projects">
-      <div className="projects-inner">
-        <div className="sec-header reveal">
-          <div className="sec-num">03 — Projects</div>
-          <h2 className="sec-title">Selected <em>projects</em>.</h2>
-          <p className="sec-sub">Production-grade systems spanning LLM pipelines, distributed infra, and real-time data.</p>
-        </div>
-
-        <div className="proj-featured reveal" style={{marginBottom:'1.5rem'}}>
-          <div className="proj-featured-left">
-            <div><span className="feat-badge">⚡ Featured</span></div>
-            <div>
-              <div className="proj-name" style={{fontSize:'1.8rem',marginBottom:'0.2rem'}}>DevPulse</div>
-              <div className="proj-sub">Real-Time Developer Activity Intelligence</div>
-            </div>
-            <p className="proj-desc">Real-time event ingestion pipeline using Apache Kafka and Go, processing 10K+ simulated GitHub webhook events/sec with sub-100ms latency. Multi-tier caching with Redis sorted-set leaderboards. Full Kubernetes deployment with HPA, liveness probes, GitHub Actions CI/CD, and end-to-end Prometheus + Grafana observability.</p>
-            <div className="proj-chips">
-              {['Go','Apache Kafka','Redis','Elasticsearch','Kubernetes','Terraform','Prometheus','Grafana','GitHub Actions'].map(c => <span key={c} className="pchip">{c}</span>)}
-            </div>
-            <a href="https://github.com/Amaan1001/DevPulse" target="_blank" rel="noopener" className="proj-link">View on GitHub →</a>
-          </div>
-          <div className="proj-featured-right">
-            <div className="proj-metrics-dark">
-              <div className="met-d"><span className="met-dv">10K+</span><span className="met-dl">events/sec</span></div>
-              <div className="met-d"><span className="met-dv">&lt;100ms</span><span className="met-dl">latency</span></div>
-              <div className="met-d"><span className="met-dv">60%</span><span className="met-dl">query drop</span></div>
-            </div>
-            <div style={{background:'rgba(255,255,255,0.03)',borderRadius:'12px',border:'1px solid rgba(255,255,255,0.08)',padding:'1.5rem',fontFamily:'var(--mono)',fontSize:'12px',lineHeight:'1.9',color:'rgba(245,240,232,0.55)',flex:1,marginTop:'0.5rem'}}>
-              <span style={{color:'rgba(245,240,232,0.25)'}}>// kafka consumer loop</span><br/>
-              <span style={{color:'#C792EA'}}>func</span> <span style={{color:'#82FFB8'}}>ProcessEvent</span>(<span style={{color:'#FFB454'}}>e</span> Event) {'{'}<br/>
-              &nbsp;&nbsp;<span style={{color:'#C792EA'}}>select</span> {'{'}<br/>
-              &nbsp;&nbsp;<span style={{color:'#C792EA'}}>case</span> msg := &lt;-kafka.Ch:<br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;redis.<span style={{color:'#82FFB8'}}>ZAdd</span>(ctx, msg)<br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;es.<span style={{color:'#82FFB8'}}>Index</span>(ctx, msg)<br/>
-              &nbsp;&nbsp;{'}'}<br/>
-              {'}'}<br/>
-              <br/>
-              <span style={{color:'rgba(245,240,232,0.25)'}}>// p99: 87ms ✓</span>
-            </div>
-            <a href="https://github.com/Amaan1001/DevPulse" target="_blank" rel="noopener" className="proj-link-light">View on GitHub →</a>
-          </div>
-        </div>
-
-        {/* IntelliChat — AI Featured */}
-        <div className="proj-featured reveal" style={{marginBottom:'1.5rem',background:'var(--sand)'}}>
-          <div className="proj-featured-left" style={{borderRight:'1px solid var(--border)'}}>
-            <div><span className="feat-badge" style={{color:'var(--gold)',borderColor:'rgba(176,122,32,0.3)',background:'var(--gold-dim)'}}>🧠 AI Featured</span></div>
-            <div>
-              <div className="proj-name" style={{fontSize:'1.8rem',marginBottom:'0.2rem'}}>IntelliChat</div>
-              <div className="proj-sub">Multi-Tenant AI Support Platform · RAG + Serverless</div>
-            </div>
-            <p className="proj-desc">Production-grade multi-tenant customer support platform where each tenant uploads their own knowledge base (PDFs, docs) — chunked, embedded, and stored in a per-tenant Elasticsearch vector index. A 4-Lambda serverless AI pipeline orchestrates RAG retrieval and GPT-4o-mini response drafting. Real-time token streaming flows OpenAI → Redis pub/sub → WebSocket. Per-tenant data isolation enforced via PostgreSQL schemas and Go JWT middleware. Full Terraform + Kubernetes + CI/CD observability stack.</p>
-            <div className="proj-chips">
-              {['Go','Python','LangChain','AWS Lambda','LocalStack','OpenAI GPT-4o-mini','Elasticsearch k-NN','Redis pub/sub','PostgreSQL','Kubernetes','Terraform','FastAPI','WebSocket','React'].map(c => <span key={c} className="pchip">{c}</span>)}
-            </div>
-            <a href="https://github.com/Amaan1001/intellichat" target="_blank" rel="noopener" className="proj-link">View on GitHub →</a>
-          </div>
-          <div className="proj-featured-right">
-            <div className="proj-metrics-dark">
-              <div className="met-d"><span className="met-dv">&lt;50ms</span><span className="met-dl">token stream</span></div>
-              <div className="met-d"><span className="met-dv">4</span><span className="met-dl">Lambda stages</span></div>
-              <div className="met-d"><span className="met-dv">$0.07</span><span className="met-dl">100 convos</span></div>
-            </div>
-            <div style={{background:'rgba(255,255,255,0.03)',borderRadius:'12px',border:'1px solid rgba(255,255,255,0.08)',padding:'1.5rem',fontFamily:'var(--mono)',fontSize:'12px',lineHeight:'1.9',color:'rgba(238,240,247,0.55)',flex:1,marginTop:'0.5rem'}}>
-              <span style={{color:'rgba(238,240,247,0.25)'}}>// AI pipeline chain</span><br/>
-              <span style={{color:'#C792EA'}}>orchestrator</span>.<span style={{color:'#82FFB8'}}>invoke</span>({'{'}<br/>
-              &nbsp;&nbsp;<span style={{color:'#FFB454'}}>retriever</span>: <span style={{color:'#82FFB8'}}>ragSearch</span>(tenant),<br/>
-              &nbsp;&nbsp;<span style={{color:'#FFB454'}}>drafter</span>: <span style={{color:'#82FFB8'}}>gpt4oMini</span>(ctx),<br/>
-              &nbsp;&nbsp;<span style={{color:'#FFB454'}}>stream</span>: <span style={{color:'#82FFB8'}}>redisPubSub</span>(),<br/>
-              {'}'});<br/>
-              <span style={{color:'rgba(238,240,247,0.25)'}}>// p99: &lt;50ms ✓</span>
-            </div>
-            <a href="https://github.com/Amaan1001/intellichat" target="_blank" rel="noopener" className="proj-link-light">View on GitHub →</a>
-          </div>
-        </div>
-
-        <div className="proj-grid">
-          {[
-            { name:'SEC Risk Intelligence', sub:'4-Agent LLM Pipeline · 10-K Filing Analysis', accent:'teal', icon:'🔍',
-              desc:'Multi-agent Python pipeline analyzing SEC EDGAR 10-K filings using OpenAI API. Four specialized agents — Extractor, Risk Analyzer, Quantitative Scorer, and Report Generator — produce structured JSON + PDF risk reports with backtest accuracy validation.',
-              chips:['Python','OpenAI','SEC EDGAR','Multi-Agent','RAG','LangChain'], met:[{v:'4',l:'LLM agents'},{v:'PDF',l:'risk reports'}] },
-            { name:'FitFlow AI', sub:'Personal Gym Concierge · RAG + Local LLM', accent:'teal', icon:'🏋️',
-              desc:'AI-powered fitness companion running entirely on local infrastructure — no cloud API costs. Generates personalized workout plans via RAG over a curated exercise knowledge base, with a 24/7 chat trainer for form checks and motivation. Supplement recommendations and equipment-aware exercise swaps driven by semantic vector search.',
-              chips:['Python','LangChain','Ollama','Llama 3.1','ChromaDB','Sentence Transformers','Streamlit','RAG'], met:[{v:'100%',l:'local LLM'},{v:'0$',l:'API cost'}] },
-            { name:'NexusFlow', sub:'Multi-Agent Workflow Automation Platform', accent:'rust', icon:'⚡',
-              desc:'Event-driven multi-agent platform where specialized AI agents (Planner, Executor, Critic, Summarizer) collaborate via a shared message bus to decompose and complete complex long-horizon tasks. Built on LangGraph for stateful agent orchestration, FastAPI for the task ingestion API, and Kafka for inter-agent event streaming. Redis tracks agent state and task context with TTL-based expiry. Full observability via Prometheus + Grafana.',
-              chips:['Python','LangGraph','OpenAI','FastAPI','Apache Kafka','Redis','PostgreSQL','Docker','Prometheus'], met:[] },
-          ].map((p,i) => (
-            <div key={p.name} className="proj-card reveal" style={{animationDelay:`${i*0.1}s`}}>
-              <div><div className={`proj-accent ${p.accent}`}>{p.icon}</div></div>
-              <div><div className="proj-name">{p.name}</div><div className="proj-sub" style={{marginTop:'2px'}}>{p.sub}</div></div>
-              {p.met.length > 0 && (
-                <div style={{display:'flex',gap:'1.5rem'}}>
-                  {p.met.map(m => (
-                    <div key={m.l}>
-                      <div style={{fontFamily:'var(--serif)',fontSize:'1.5rem',fontStyle:'italic',color:'var(--rust)'}}>{m.v}</div>
-                      <div style={{fontFamily:'var(--mono)',fontSize:'10px',color:'var(--faint)',textTransform:'uppercase',letterSpacing:'0.08em'}}>{m.l}</div>
-                    </div>
-                  ))}
-                </div>
-              )}
-              <p className="proj-desc">{p.desc}</p>
-              <div className="proj-chips">{p.chips.map(c => <span key={c} className="pchip">{c}</span>)}</div>
-              <a href="https://github.com/Amaan1001" target="_blank" rel="noopener" className="proj-link">View on GitHub →</a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  return /*#__PURE__*/React.createElement("div", {
+    className: "projects-wrap",
+    id: "projects"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "projects-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sec-header reveal"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sec-num"
+  }, "03 \u2014 Projects"), /*#__PURE__*/React.createElement("h2", {
+    className: "sec-title"
+  }, "Selected ", /*#__PURE__*/React.createElement("em", null, "projects"), "."), /*#__PURE__*/React.createElement("p", {
+    className: "sec-sub"
+  }, "Production-grade systems spanning LLM pipelines, distributed infra, and real-time data.")), /*#__PURE__*/React.createElement("div", {
+    className: "proj-featured reveal",
+    style: {
+      marginBottom: '1.5rem'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proj-featured-left"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+    className: "feat-badge"
+  }, "\u26A1 Featured")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "proj-name",
+    style: {
+      fontSize: '1.8rem',
+      marginBottom: '0.2rem'
+    }
+  }, "DevPulse"), /*#__PURE__*/React.createElement("div", {
+    className: "proj-sub"
+  }, "Real-Time Developer Activity Intelligence")), /*#__PURE__*/React.createElement("p", {
+    className: "proj-desc"
+  }, "Real-time event ingestion pipeline using Apache Kafka and Go, processing 10K+ simulated GitHub webhook events/sec with sub-100ms latency. Multi-tier caching with Redis sorted-set leaderboards. Full Kubernetes deployment with HPA, liveness probes, GitHub Actions CI/CD, and end-to-end Prometheus + Grafana observability."), /*#__PURE__*/React.createElement("div", {
+    className: "proj-chips"
+  }, ['Go', 'Apache Kafka', 'Redis', 'Elasticsearch', 'Kubernetes', 'Terraform', 'Prometheus', 'Grafana', 'GitHub Actions'].map(function (c) {
+    return /*#__PURE__*/React.createElement("span", {
+      key: c,
+      className: "pchip"
+    }, c);
+  })), /*#__PURE__*/React.createElement("a", {
+    href: "https://github.com/Amaan1001/DevPulse",
+    target: "_blank",
+    rel: "noopener",
+    className: "proj-link"
+  }, "View on GitHub \u2192")), /*#__PURE__*/React.createElement("div", {
+    className: "proj-featured-right"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proj-metrics-dark"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "met-d"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "met-dv"
+  }, "10K+"), /*#__PURE__*/React.createElement("span", {
+    className: "met-dl"
+  }, "events/sec")), /*#__PURE__*/React.createElement("div", {
+    className: "met-d"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "met-dv"
+  }, "<100ms"), /*#__PURE__*/React.createElement("span", {
+    className: "met-dl"
+  }, "latency")), /*#__PURE__*/React.createElement("div", {
+    className: "met-d"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "met-dv"
+  }, "60%"), /*#__PURE__*/React.createElement("span", {
+    className: "met-dl"
+  }, "query drop"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: 'rgba(255,255,255,0.03)',
+      borderRadius: '12px',
+      border: '1px solid rgba(255,255,255,0.08)',
+      padding: '1.5rem',
+      fontFamily: 'var(--mono)',
+      fontSize: '12px',
+      lineHeight: '1.9',
+      color: 'rgba(245,240,232,0.55)',
+      flex: 1,
+      marginTop: '0.5rem'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'rgba(245,240,232,0.25)'
+    }
+  }, "// kafka consumer loop"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#C792EA'
+    }
+  }, "func"), " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#82FFB8'
+    }
+  }, "ProcessEvent"), "(", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#FFB454'
+    }
+  }, "e"), " Event) ", '{', /*#__PURE__*/React.createElement("br", null), "\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#C792EA'
+    }
+  }, "select"), " ", '{', /*#__PURE__*/React.createElement("br", null), "\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#C792EA'
+    }
+  }, "case"), " msg := <-kafka.Ch:", /*#__PURE__*/React.createElement("br", null), "\xA0\xA0\xA0\xA0redis.", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#82FFB8'
+    }
+  }, "ZAdd"), "(ctx, msg)", /*#__PURE__*/React.createElement("br", null), "\xA0\xA0\xA0\xA0es.", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#82FFB8'
+    }
+  }, "Index"), "(ctx, msg)", /*#__PURE__*/React.createElement("br", null), "\xA0\xA0", '}', /*#__PURE__*/React.createElement("br", null), '}', /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'rgba(245,240,232,0.25)'
+    }
+  }, "// p99: 87ms \u2713")), /*#__PURE__*/React.createElement("a", {
+    href: "https://github.com/Amaan1001/DevPulse",
+    target: "_blank",
+    rel: "noopener",
+    className: "proj-link-light"
+  }, "View on GitHub \u2192"))), /*#__PURE__*/React.createElement("div", {
+    className: "proj-featured reveal",
+    style: {
+      marginBottom: '1.5rem',
+      background: 'var(--sand)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proj-featured-left",
+    style: {
+      borderRight: '1px solid var(--border)'
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+    className: "feat-badge",
+    style: {
+      color: 'var(--gold)',
+      borderColor: 'rgba(176,122,32,0.3)',
+      background: 'var(--gold-dim)'
+    }
+  }, "\uD83E\uDDE0 AI Featured")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "proj-name",
+    style: {
+      fontSize: '1.8rem',
+      marginBottom: '0.2rem'
+    }
+  }, "IntelliChat"), /*#__PURE__*/React.createElement("div", {
+    className: "proj-sub"
+  }, "Multi-Tenant AI Support Platform \xB7 RAG + Serverless")), /*#__PURE__*/React.createElement("p", {
+    className: "proj-desc"
+  }, "Production-grade multi-tenant customer support platform where each tenant uploads their own knowledge base (PDFs, docs) \u2014 chunked, embedded, and stored in a per-tenant Elasticsearch vector index. A 4-Lambda serverless AI pipeline orchestrates RAG retrieval and GPT-4o-mini response drafting. Real-time token streaming flows OpenAI \u2192 Redis pub/sub \u2192 WebSocket. Per-tenant data isolation enforced via PostgreSQL schemas and Go JWT middleware. Full Terraform + Kubernetes + CI/CD observability stack."), /*#__PURE__*/React.createElement("div", {
+    className: "proj-chips"
+  }, ['Go', 'Python', 'LangChain', 'AWS Lambda', 'LocalStack', 'OpenAI GPT-4o-mini', 'Elasticsearch k-NN', 'Redis pub/sub', 'PostgreSQL', 'Kubernetes', 'Terraform', 'FastAPI', 'WebSocket', 'React'].map(function (c) {
+    return /*#__PURE__*/React.createElement("span", {
+      key: c,
+      className: "pchip"
+    }, c);
+  })), /*#__PURE__*/React.createElement("a", {
+    href: "https://github.com/Amaan1001/intellichat",
+    target: "_blank",
+    rel: "noopener",
+    className: "proj-link"
+  }, "View on GitHub \u2192")), /*#__PURE__*/React.createElement("div", {
+    className: "proj-featured-right"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "proj-metrics-dark"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "met-d"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "met-dv"
+  }, "<50ms"), /*#__PURE__*/React.createElement("span", {
+    className: "met-dl"
+  }, "token stream")), /*#__PURE__*/React.createElement("div", {
+    className: "met-d"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "met-dv"
+  }, "4"), /*#__PURE__*/React.createElement("span", {
+    className: "met-dl"
+  }, "Lambda stages")), /*#__PURE__*/React.createElement("div", {
+    className: "met-d"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "met-dv"
+  }, "$0.07"), /*#__PURE__*/React.createElement("span", {
+    className: "met-dl"
+  }, "100 convos"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: 'rgba(255,255,255,0.03)',
+      borderRadius: '12px',
+      border: '1px solid rgba(255,255,255,0.08)',
+      padding: '1.5rem',
+      fontFamily: 'var(--mono)',
+      fontSize: '12px',
+      lineHeight: '1.9',
+      color: 'rgba(238,240,247,0.55)',
+      flex: 1,
+      marginTop: '0.5rem'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'rgba(238,240,247,0.25)'
+    }
+  }, "// AI pipeline chain"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#C792EA'
+    }
+  }, "orchestrator"), ".", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#82FFB8'
+    }
+  }, "invoke"), "(", '{', /*#__PURE__*/React.createElement("br", null), "\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#FFB454'
+    }
+  }, "retriever"), ": ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#82FFB8'
+    }
+  }, "ragSearch"), "(tenant),", /*#__PURE__*/React.createElement("br", null), "\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#FFB454'
+    }
+  }, "drafter"), ": ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#82FFB8'
+    }
+  }, "gpt4oMini"), "(ctx),", /*#__PURE__*/React.createElement("br", null), "\xA0\xA0", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#FFB454'
+    }
+  }, "stream"), ": ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#82FFB8'
+    }
+  }, "redisPubSub"), "(),", /*#__PURE__*/React.createElement("br", null), '}', ");", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'rgba(238,240,247,0.25)'
+    }
+  }, "// p99: <50ms \u2713")), /*#__PURE__*/React.createElement("a", {
+    href: "https://github.com/Amaan1001/intellichat",
+    target: "_blank",
+    rel: "noopener",
+    className: "proj-link-light"
+  }, "View on GitHub \u2192"))), /*#__PURE__*/React.createElement("div", {
+    className: "proj-grid"
+  }, [{
+    name: 'SEC Risk Intelligence',
+    sub: '4-Agent LLM Pipeline · 10-K Filing Analysis',
+    accent: 'teal',
+    icon: '🔍',
+    desc: 'Multi-agent Python pipeline analyzing SEC EDGAR 10-K filings using OpenAI API. Four specialized agents — Extractor, Risk Analyzer, Quantitative Scorer, and Report Generator — produce structured JSON + PDF risk reports with backtest accuracy validation.',
+    chips: ['Python', 'OpenAI', 'SEC EDGAR', 'Multi-Agent', 'RAG', 'LangChain'],
+    met: [{
+      v: '4',
+      l: 'LLM agents'
+    }, {
+      v: 'PDF',
+      l: 'risk reports'
+    }]
+  }, {
+    name: 'FitFlow AI',
+    sub: 'Personal Gym Concierge · RAG + Local LLM',
+    accent: 'teal',
+    icon: '🏋️',
+    desc: 'AI-powered fitness companion running entirely on local infrastructure — no cloud API costs. Generates personalized workout plans via RAG over a curated exercise knowledge base, with a 24/7 chat trainer for form checks and motivation. Supplement recommendations and equipment-aware exercise swaps driven by semantic vector search.',
+    chips: ['Python', 'LangChain', 'Ollama', 'Llama 3.1', 'ChromaDB', 'Sentence Transformers', 'Streamlit', 'RAG'],
+    met: [{
+      v: '100%',
+      l: 'local LLM'
+    }, {
+      v: '0$',
+      l: 'API cost'
+    }]
+  }, {
+    name: 'NexusFlow',
+    sub: 'Multi-Agent Workflow Automation Platform',
+    accent: 'rust',
+    icon: '⚡',
+    desc: 'Event-driven multi-agent platform where specialized AI agents (Planner, Executor, Critic, Summarizer) collaborate via a shared message bus to decompose and complete complex long-horizon tasks. Built on LangGraph for stateful agent orchestration, FastAPI for the task ingestion API, and Kafka for inter-agent event streaming. Redis tracks agent state and task context with TTL-based expiry. Full observability via Prometheus + Grafana.',
+    chips: ['Python', 'LangGraph', 'OpenAI', 'FastAPI', 'Apache Kafka', 'Redis', 'PostgreSQL', 'Docker', 'Prometheus'],
+    met: []
+  }].map(function (p, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: p.name,
+      className: "proj-card reveal",
+      style: {
+        animationDelay: "".concat(i * 0.1, "s")
+      }
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      className: "proj-accent ".concat(p.accent)
+    }, p.icon)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      className: "proj-name"
+    }, p.name), /*#__PURE__*/React.createElement("div", {
+      className: "proj-sub",
+      style: {
+        marginTop: '2px'
+      }
+    }, p.sub)), p.met.length > 0 && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        gap: '1.5rem'
+      }
+    }, p.met.map(function (m) {
+      return /*#__PURE__*/React.createElement("div", {
+        key: m.l
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontFamily: 'var(--serif)',
+          fontSize: '1.5rem',
+          fontStyle: 'italic',
+          color: 'var(--rust)'
+        }
+      }, m.v), /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontFamily: 'var(--mono)',
+          fontSize: '10px',
+          color: 'var(--faint)',
+          textTransform: 'uppercase',
+          letterSpacing: '0.08em'
+        }
+      }, m.l));
+    })), /*#__PURE__*/React.createElement("p", {
+      className: "proj-desc"
+    }, p.desc), /*#__PURE__*/React.createElement("div", {
+      className: "proj-chips"
+    }, p.chips.map(function (c) {
+      return /*#__PURE__*/React.createElement("span", {
+        key: c,
+        className: "pchip"
+      }, c);
+    })), /*#__PURE__*/React.createElement("a", {
+      href: "https://github.com/Amaan1001",
+      target: "_blank",
+      rel: "noopener",
+      className: "proj-link"
+    }, "View on GitHub \u2192"));
+  }))));
 }
-
 function App() {
   useReveal();
-
-  return (
-    <>
-      <Cursor />
-
-      <nav className="nav">
-        <a href="#hero" className="nav-logo">AS</a>
-        <ul className="nav-links">
-          {['About','Skills','Projects','Experience','Education'].map(l => (
-            <li key={l}><a href={`#${l.toLowerCase()}`}>{l}</a></li>
-          ))}
-        </ul>
-        <div className="nav-badge">Open to Work · Jun 2026</div>
-      </nav>
-
-      {/* HERO */}
-      <section id="hero" className="hero" style={{padding:0}}>
-        <div className="hero-left">
-          <div className="anim-1" style={{marginBottom:'1.5rem'}}>
-            <TypingBadge />
-          </div>
-          <h1 className="anim-2" style={{fontFamily:'var(--serif)',fontSize:'clamp(2.4rem,4.8vw,4.2rem)',fontStyle:'italic',lineHeight:1.05,letterSpacing:'-0.03em',color:'var(--ink)',marginBottom:'0.15em',whiteSpace:'nowrap'}}>
-            Amaan <span style={{color:'var(--muted)',fontWeight:400}}>Farooque</span> <span style={{color:'var(--rust)'}}>Shaikh.</span>
-          </h1>
-          <p className="anim-3" style={{color:'var(--muted)',fontSize:'1rem',maxWidth:'460px',marginBottom:'2.5rem',lineHeight:1.8,fontWeight:400,fontFamily:'var(--display)'}}>
-            I build <strong style={{color:'var(--ink)',fontWeight:600}}>LLM-powered applications</strong> and the <strong style={{color:'var(--ink)',fontWeight:600}}>cloud infrastructure</strong> that runs them — multi-agent pipelines, RAG systems, distributed microservices, and production grade deployments.
-          </p>
-          <div className="anim-4" style={{display:'flex',gap:'12px',flexWrap:'wrap',marginBottom:'1rem'}}>
-            <a href="#projects" style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'var(--ink)',color:'var(--sand)',fontFamily:'var(--display)',fontSize:'13px',fontWeight:700,padding:'12px 28px',borderRadius:'100px',textDecoration:'none',letterSpacing:'0.05em',textTransform:'uppercase',transition:'all 0.2s'}}
-              onMouseEnter={e=>{e.currentTarget.style.background='var(--rust)'}}
-              onMouseLeave={e=>{e.currentTarget.style.background='var(--ink)'}}>
-              View Work
-            </a>
-            <a href="https://github.com/Amaan1001" target="_blank" rel="noopener" style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'transparent',color:'var(--ink)',fontFamily:'var(--display)',fontSize:'13px',fontWeight:600,padding:'12px 28px',borderRadius:'100px',textDecoration:'none',letterSpacing:'0.05em',textTransform:'uppercase',border:'1.5px solid var(--border2)',transition:'all 0.2s'}}
-              onMouseEnter={e=>{e.currentTarget.style.borderColor='var(--rust)';e.currentTarget.style.color='var(--rust)'}}
-              onMouseLeave={e=>{e.currentTarget.style.borderColor='var(--border2)';e.currentTarget.style.color='var(--ink)'}}>
-              GitHub
-            </a>
-          </div>
-          <div className="big-stat-row anim-5">
-            {[['3+','years exp'],['4+','AI projects'],['15+','Services Deployed']].map(([n,l]) => (
-              <div key={l} className="big-stat"><span className="bs-num">{n}</span><span className="bs-label">{l}</span></div>
-            ))}
-          </div>
-        </div>
-        <div className="hero-right">
-          <div className="grid-bg"></div>
-          <div style={{position:'relative',zIndex:2}}>
-            <div style={{fontFamily:'var(--mono)',fontSize:'11px',color:'rgba(238,240,247,0.4)',letterSpacing:'0.1em',textTransform:'uppercase',marginBottom:'2rem'}}>New York City · Open to work</div>
-            <div style={{fontFamily:'var(--serif)',fontStyle:'italic',fontSize:'1.05rem',color:'rgba(238,240,247,0.65)',lineHeight:1.9,maxWidth:'380px',marginBottom:'3rem'}}>
-              "I care about the full picture — intelligent systems that reason well, and the infrastructure that keeps them fast, reliable, and observable in production."
-            </div>
-            <div style={{display:'grid',gap:'12px'}}>
-              {[
-                {icon:'🎓',label:'Stevens Institute',sub:'M.S. Computer Science · GPA 3.8'},
-                {icon:'💼',label:'Accenture',sub:'Associate Software Engineer · 2023–24'},
-                {icon:'🌍',label:'Mumbai University',sub:'B.E. Information Technology · GPA 4.0'},
-              ].map(item => (
-                <div key={item.label} style={{display:'flex',alignItems:'center',gap:'14px',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.1)',borderRadius:'10px',padding:'12px 16px'}}>
-                  <span style={{fontSize:'1.2rem'}}>{item.icon}</span>
-                  <div>
-                    <div style={{fontSize:'14px',fontWeight:600,color:'rgba(238,240,247,0.9)',fontFamily:'var(--display)'}}>{item.label}</div>
-                    <div style={{fontSize:'12px',color:'rgba(238,240,247,0.4)',fontFamily:'var(--mono)'}}>{item.sub}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="marquee-wrap">
-        <div className="marquee-inner">
-          {['Java','Spring Boot','Go','Apache Kafka','Kubernetes','AWS','LangChain','OpenAI','RAG Pipelines','FastAPI','Terraform','Redis','PostgreSQL','LLM Agents','MCP','smolagents','Docker','Elasticsearch','Prometheus','GPT-4',
-            'Java','Spring Boot','Go','Apache Kafka','Kubernetes','AWS','LangChain','OpenAI','RAG Pipelines','FastAPI','Terraform','Redis','PostgreSQL','LLM Agents','MCP','smolagents','Docker','Elasticsearch','Prometheus','GPT-4'].map((t,i) => (
-            <span key={i}>{t} <span className="dot">✦</span></span>
-          ))}
-        </div>
-      </div>
-
-      {/* ABOUT */}
-      <div className="about-wrap" id="about">
-        <div className="about-grid">
-          <div className="about-body reveal-l">
-            <div className="sec-num" style={{marginBottom:'1rem'}}>01 — About</div>
-            <h2 className="sec-title" style={{marginBottom:'2rem'}}>About <em>me</em></h2>
-            <p>I'm an <strong>AI Systems and Software Engineer</strong> — I design and ship LLM-powered applications end-to-end, from the model layer to the distributed systems that keep them running in production.</p>
-            <p>My AI work spans multi-agent pipelines, RAG systems, and real-time market data agents. My infra and backend architecture work spans Kafka event pipelines, Kubernetes-native microservices, and AWS cloud deployments with Terraform and full observability stacks.</p>
-            <p>Currently finishing my <strong>M.S. in Computer Science</strong> at Stevens Institute of Technology. Previously at <strong>Accenture</strong>, where I led automation and code delivery across distributed services. I've shipped real production-grade AI systems — not just course demos.</p>
-          </div>
-          <div className="about-stack reveal">
-            {[
-              {label:'Current School',val:'Stevens Institute of Technology',sub:'M.S. CS · GPA 3.8 · 2024–2026'},
-              {label:'Location',val:'New York City Metropolitian Area',sub:'Open to remote & on-site'},
-              {label:'AI Stack',val:'LangChain · RAG · Agents',sub:'OpenAI · MCP · smolagents · vLLM'},
-              {label:'Infra Stack',val:'AWS · Kubernetes · Kafka',sub:'Terraform · Docker · Prometheus'},
-              {label:'Looking For',val:'AI Engineer · Software Engineer',sub:'Full-time · Jun 2026'},
-            ].map(t => (
-              <div key={t.label} className="about-tile">
-                <div className="atile-label">{t.label}</div>
-                <div className="atile-val">{t.val}</div>
-                <div className="atile-sub">{t.sub}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <Skills />
-      <Projects />
-
-      {/* EXPERIENCE */}
-      <section id="experience" style={{background:'var(--sand)'}}>
-        <div className="exp-wrap">
-          <div className="sec-header reveal">
-            <div className="sec-num">04 — Experience</div>
-            <h2 className="sec-title">Where I've <em>worked</em>.</h2>
-          </div>
-          {[
-            { period:'Jun 2023 – Jul 2024', co:'Accenture', badge:'b1', badgeText:'Full-Time',
-              role:'Associate Software Engineer',
-              items:['Engineered scalable Java backend services using Spring Boot + Spring Data JPA, integrating AWS Lambda and RDS for fault-tolerant RESTful APIs.',
-                'Optimized PostgreSQL schemas with targeted indexing and connection pooling — improved query execution by 30% and backend performance by 20%.',
-                'Built serverless workflows with AWS Lambda + S3, event-driven architecture that reduced operational overhead by 40%.',
-                'Led automation that recovered 100,000+ affected insurance policies across distributed production services.'] },
-            { period:'Jan 2023 – May 2023', co:'Oasis Infobyte', badge:'b2', badgeText:'Internship',
-              role:'Data Analyst Intern',
-              items:['Analyzed large datasets with AWS Athena, Redshift, and QuickSight alongside SQL and Python to extract and visualize operational data.',
-                'Integrated Prometheus for metrics and ELK Stack for centralized log aggregation, improving observability by 40%.',
-                'Applied regression analysis and data segmentation to drive process improvements, enhancing output quality by 15%.'] },
-            { period:'Jun 2022 – Jul 2022', co:'Sahu Technologies', badge:'b3', badgeText:'Internship',
-              role:'Python & Web Development Intern',
-              items:['Delivered a RESTful API backend with Node.js serving 1,000+ daily requests at under 200ms response time.',
-                'Designed an ML inference pipeline analyzing 300+ datasets, exposed predictions through REST API endpoints.',
-                'Trained a QR Code Detection model achieving 95% accuracy, deployed as a real-time API service.'] },
-          ].map(exp => (
-            <div key={exp.co} className="exp-item reveal">
-              <div>
-                <div className="exp-period">{exp.period}</div>
-                <div className="exp-company">{exp.co}</div>
-                <span className={`exp-badge ${exp.badge}`}>{exp.badgeText}</span>
-              </div>
-              <div>
-                <div className="exp-role">{exp.role}</div>
-                <ul className="exp-list">
-                  {exp.items.map((item,i) => <li key={i}>{item}</li>)}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* EDUCATION */}
-      <div className="edu-wrap" id="education">
-        <div className="edu-inner">
-          <div className="sec-header reveal">
-            <div className="sec-num">05 — Education</div>
-            <h2 className="sec-title">Academic <em>roots</em>.</h2>
-          </div>
-          <div className="edu-grid">
-            {[
-              { school:'Stevens Institute of Technology', deg:'Master of Science, Computer Science',
-                stripe:'rust', pills:['GPA 3.8','2024–2026','Hoboken NJ'],
-                courses:'Artificial Intelligence · NLP · GenAI · Advanced Algorithms · Prompt Engineering' },
-              { school:'Mumbai University', deg:'Bachelor of Engineering, Information Technology',
-                stripe:'teal', pills:['GPA 4.0','2019–2023','Mumbai IN'],
-                courses:'Machine Learning · Data Science · Business Intelligence · Data Analytics · AWS · Computer Networks' },
-            ].map(e => (
-              <div key={e.school} className="edu-card reveal">
-                <div className={`edu-stripe ${e.stripe}`}></div>
-                <div className="edu-school">{e.school}</div>
-                <div className="edu-deg">{e.deg}</div>
-                <div className="edu-pills">{e.pills.map(p => <span key={p} className="edu-pill">{p}</span>)}</div>
-                <div className="edu-courses">{e.courses}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* CONTACT */}
-      <section id="contact" style={{background:'var(--sand)'}}>
-        <div className="contact-wrap">
-          <h2 className="contact-title reveal">Let's build<br/><em>something great.</em></h2>
-          <p className="contact-sub reveal">Seeking <strong>AI Engineer</strong> and <strong>Software Engineer</strong> roles. Based in New York City Metropolitian Area — available June 2026.</p>
-          <div className="contact-grid reveal">
-            {[
-              { href:'mailto:amaan.faruk@gmail.com', label:'Email', icon:<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg> },
-              { href:'https://github.com/Amaan1001', label:'GitHub', icon:<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2Z"/></svg> },
-              { href:'https://www.linkedin.com/in/amaan-shaikh-aa592b221/', label:'LinkedIn', icon:<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> },
-              { href:'tel:2015265189', label:'(201) 526-5189', icon:<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg> },
-            ].map(l => (
-              <a key={l.label} href={l.href} target={l.href.startsWith('http')?'_blank':undefined} rel="noopener" className="clink">
-                {l.icon}{l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <span>© 2025 Amaan Farooque Shaikh</span>
-        <span>Hoboken, NJ · Stevens Institute of Technology</span>
-      </footer>
-    </>
-  );
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement("nav", {
+    className: "nav"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "#hero",
+    className: "nav-logo"
+  }, "AS"), /*#__PURE__*/React.createElement("ul", {
+    className: "nav-links"
+  }, ['About', 'Skills', 'Projects', 'Experience', 'Education'].map(function (l) {
+    return /*#__PURE__*/React.createElement("li", {
+      key: l
+    }, /*#__PURE__*/React.createElement("a", {
+      href: "#".concat(l.toLowerCase())
+    }, l));
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "nav-badge"
+  }, "Open to Work \xB7 Jun 2026")), /*#__PURE__*/React.createElement("section", {
+    id: "hero",
+    className: "hero",
+    style: {
+      padding: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "hero-left"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "anim-1",
+    style: {
+      marginBottom: '1.5rem'
+    }
+  }, /*#__PURE__*/React.createElement(TypingBadge, null)), /*#__PURE__*/React.createElement("h1", {
+    className: "anim-2",
+    style: {
+      fontFamily: 'var(--serif)',
+      fontSize: 'clamp(2.4rem,4.8vw,4.2rem)',
+      fontStyle: 'italic',
+      lineHeight: 1.05,
+      letterSpacing: '-0.03em',
+      color: 'var(--ink)',
+      marginBottom: '0.15em',
+      whiteSpace: 'nowrap'
+    }
+  }, "Amaan ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'var(--muted)',
+      fontWeight: 400
+    }
+  }, "Farooque"), " ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'var(--rust)'
+    }
+  }, "Shaikh.")), /*#__PURE__*/React.createElement("p", {
+    className: "anim-3",
+    style: {
+      color: 'var(--muted)',
+      fontSize: '1rem',
+      maxWidth: '460px',
+      marginBottom: '2.5rem',
+      lineHeight: 1.8,
+      fontWeight: 400,
+      fontFamily: 'var(--display)'
+    }
+  }, "I build ", /*#__PURE__*/React.createElement("strong", {
+    style: {
+      color: 'var(--ink)',
+      fontWeight: 600
+    }
+  }, "LLM-powered applications"), " and the ", /*#__PURE__*/React.createElement("strong", {
+    style: {
+      color: 'var(--ink)',
+      fontWeight: 600
+    }
+  }, "cloud infrastructure"), " that runs them \u2014 multi-agent pipelines, RAG systems, distributed microservices, and production grade deployments."), /*#__PURE__*/React.createElement("div", {
+    className: "anim-4",
+    style: {
+      display: 'flex',
+      gap: '12px',
+      flexWrap: 'wrap',
+      marginBottom: '1rem'
+    }
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "#projects",
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      background: 'var(--ink)',
+      color: 'var(--sand)',
+      fontFamily: 'var(--display)',
+      fontSize: '13px',
+      fontWeight: 700,
+      padding: '12px 28px',
+      borderRadius: '100px',
+      textDecoration: 'none',
+      letterSpacing: '0.05em',
+      textTransform: 'uppercase',
+      transition: 'all 0.2s'
+    },
+    onMouseEnter: function onMouseEnter(e) {
+      e.currentTarget.style.background = 'var(--rust)';
+    },
+    onMouseLeave: function onMouseLeave(e) {
+      e.currentTarget.style.background = 'var(--ink)';
+    }
+  }, "View Work"), /*#__PURE__*/React.createElement("a", {
+    href: "https://github.com/Amaan1001",
+    target: "_blank",
+    rel: "noopener",
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      background: 'transparent',
+      color: 'var(--ink)',
+      fontFamily: 'var(--display)',
+      fontSize: '13px',
+      fontWeight: 600,
+      padding: '12px 28px',
+      borderRadius: '100px',
+      textDecoration: 'none',
+      letterSpacing: '0.05em',
+      textTransform: 'uppercase',
+      border: '1.5px solid var(--border2)',
+      transition: 'all 0.2s'
+    },
+    onMouseEnter: function onMouseEnter(e) {
+      e.currentTarget.style.borderColor = 'var(--rust)';
+      e.currentTarget.style.color = 'var(--rust)';
+    },
+    onMouseLeave: function onMouseLeave(e) {
+      e.currentTarget.style.borderColor = 'var(--border2)';
+      e.currentTarget.style.color = 'var(--ink)';
+    }
+  }, "GitHub")), /*#__PURE__*/React.createElement("div", {
+    className: "big-stat-row anim-5"
+  }, [['3+', 'years exp'], ['4+', 'AI projects'], ['15+', 'Services Deployed']].map(function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+      n = _ref2[0],
+      l = _ref2[1];
+    return /*#__PURE__*/React.createElement("div", {
+      key: l,
+      className: "big-stat"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "bs-num"
+    }, n), /*#__PURE__*/React.createElement("span", {
+      className: "bs-label"
+    }, l));
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "hero-right"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "grid-bg"
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'relative',
+      zIndex: 2
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--mono)',
+      fontSize: '11px',
+      color: 'rgba(238,240,247,0.4)',
+      letterSpacing: '0.1em',
+      textTransform: 'uppercase',
+      marginBottom: '2rem'
+    }
+  }, "New York City \xB7 Open to work"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--serif)',
+      fontStyle: 'italic',
+      fontSize: '1.05rem',
+      color: 'rgba(238,240,247,0.65)',
+      lineHeight: 1.9,
+      maxWidth: '380px',
+      marginBottom: '3rem'
+    }
+  }, "\"I care about the full picture \u2014 intelligent systems that reason well, and the infrastructure that keeps them fast, reliable, and observable in production.\""), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gap: '12px'
+    }
+  }, [{
+    icon: '🎓',
+    label: 'Stevens Institute',
+    sub: 'M.S. Computer Science · GPA 3.8'
+  }, {
+    icon: '💼',
+    label: 'Accenture',
+    sub: 'Associate Software Engineer · 2023–24'
+  }, {
+    icon: '🌍',
+    label: 'Mumbai University',
+    sub: 'B.E. Information Technology · GPA 4.0'
+  }].map(function (item) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: item.label,
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '14px',
+        background: 'rgba(255,255,255,0.06)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        borderRadius: '10px',
+        padding: '12px 16px'
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: '1.2rem'
+      }
+    }, item.icon), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: '14px',
+        fontWeight: 600,
+        color: 'rgba(238,240,247,0.9)',
+        fontFamily: 'var(--display)'
+      }
+    }, item.label), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: '12px',
+        color: 'rgba(238,240,247,0.4)',
+        fontFamily: 'var(--mono)'
+      }
+    }, item.sub)));
+  }))))), /*#__PURE__*/React.createElement("div", {
+    className: "marquee-wrap"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "marquee-inner"
+  }, ['Java', 'Spring Boot', 'Go', 'Apache Kafka', 'Kubernetes', 'AWS', 'LangChain', 'OpenAI', 'RAG Pipelines', 'FastAPI', 'Terraform', 'Redis', 'PostgreSQL', 'LLM Agents', 'MCP', 'smolagents', 'Docker', 'Elasticsearch', 'Prometheus', 'GPT-4', 'Java', 'Spring Boot', 'Go', 'Apache Kafka', 'Kubernetes', 'AWS', 'LangChain', 'OpenAI', 'RAG Pipelines', 'FastAPI', 'Terraform', 'Redis', 'PostgreSQL', 'LLM Agents', 'MCP', 'smolagents', 'Docker', 'Elasticsearch', 'Prometheus', 'GPT-4'].map(function (t, i) {
+    return /*#__PURE__*/React.createElement("span", {
+      key: i
+    }, t, " ", /*#__PURE__*/React.createElement("span", {
+      className: "dot"
+    }, "\u2726"));
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "about-wrap",
+    id: "about"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "about-grid"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "about-body reveal-l"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sec-num",
+    style: {
+      marginBottom: '1rem'
+    }
+  }, "01 \u2014 About"), /*#__PURE__*/React.createElement("h2", {
+    className: "sec-title",
+    style: {
+      marginBottom: '2rem'
+    }
+  }, "About ", /*#__PURE__*/React.createElement("em", null, "me")), /*#__PURE__*/React.createElement("p", null, "I'm an ", /*#__PURE__*/React.createElement("strong", null, "AI Systems and Software Engineer"), " \u2014 I design and ship LLM-powered applications end-to-end, from the model layer to the distributed systems that keep them running in production."), /*#__PURE__*/React.createElement("p", null, "My AI work spans multi-agent pipelines, RAG systems, and real-time market data agents. My infra and backend architecture work spans Kafka event pipelines, Kubernetes-native microservices, and AWS cloud deployments with Terraform and full observability stacks."), /*#__PURE__*/React.createElement("p", null, "Currently finishing my ", /*#__PURE__*/React.createElement("strong", null, "M.S. in Computer Science"), " at Stevens Institute of Technology. Previously at ", /*#__PURE__*/React.createElement("strong", null, "Accenture"), ", where I led automation and code delivery across distributed services. I've shipped real production-grade AI systems \u2014 not just course demos.")), /*#__PURE__*/React.createElement("div", {
+    className: "about-stack reveal"
+  }, [{
+    label: 'Current School',
+    val: 'Stevens Institute of Technology',
+    sub: 'M.S. CS · GPA 3.8 · 2024–2026'
+  }, {
+    label: 'Location',
+    val: 'New York City Metropolitian Area',
+    sub: 'Open to remote & on-site'
+  }, {
+    label: 'AI Stack',
+    val: 'LangChain · RAG · Agents',
+    sub: 'OpenAI · MCP · smolagents · vLLM'
+  }, {
+    label: 'Infra Stack',
+    val: 'AWS · Kubernetes · Kafka',
+    sub: 'Terraform · Docker · Prometheus'
+  }, {
+    label: 'Looking For',
+    val: 'AI Engineer · Software Engineer',
+    sub: 'Full-time · Jun 2026'
+  }].map(function (t) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: t.label,
+      className: "about-tile"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "atile-label"
+    }, t.label), /*#__PURE__*/React.createElement("div", {
+      className: "atile-val"
+    }, t.val), /*#__PURE__*/React.createElement("div", {
+      className: "atile-sub"
+    }, t.sub));
+  })))), /*#__PURE__*/React.createElement(Skills, null), /*#__PURE__*/React.createElement(Projects, null), /*#__PURE__*/React.createElement("section", {
+    id: "experience",
+    style: {
+      background: 'var(--sand)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "exp-wrap"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sec-header reveal"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sec-num"
+  }, "04 \u2014 Experience"), /*#__PURE__*/React.createElement("h2", {
+    className: "sec-title"
+  }, "Where I've ", /*#__PURE__*/React.createElement("em", null, "worked"), ".")), [{
+    period: 'Jun 2023 – Jul 2024',
+    co: 'Accenture',
+    badge: 'b1',
+    badgeText: 'Full-Time',
+    role: 'Associate Software Engineer',
+    items: ['Engineered scalable Java backend services using Spring Boot + Spring Data JPA, integrating AWS Lambda and RDS for fault-tolerant RESTful APIs.', 'Optimized PostgreSQL schemas with targeted indexing and connection pooling — improved query execution by 30% and backend performance by 20%.', 'Built serverless workflows with AWS Lambda + S3, event-driven architecture that reduced operational overhead by 40%.', 'Led automation that recovered 100,000+ affected insurance policies across distributed production services.']
+  }, {
+    period: 'Jan 2023 – May 2023',
+    co: 'Oasis Infobyte',
+    badge: 'b2',
+    badgeText: 'Internship',
+    role: 'Data Analyst Intern',
+    items: ['Analyzed large datasets with AWS Athena, Redshift, and QuickSight alongside SQL and Python to extract and visualize operational data.', 'Integrated Prometheus for metrics and ELK Stack for centralized log aggregation, improving observability by 40%.', 'Applied regression analysis and data segmentation to drive process improvements, enhancing output quality by 15%.']
+  }, {
+    period: 'Jun 2022 – Jul 2022',
+    co: 'Sahu Technologies',
+    badge: 'b3',
+    badgeText: 'Internship',
+    role: 'Python & Web Development Intern',
+    items: ['Delivered a RESTful API backend with Node.js serving 1,000+ daily requests at under 200ms response time.', 'Designed an ML inference pipeline analyzing 300+ datasets, exposed predictions through REST API endpoints.', 'Trained a QR Code Detection model achieving 95% accuracy, deployed as a real-time API service.']
+  }].map(function (exp) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: exp.co,
+      className: "exp-item reveal"
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      className: "exp-period"
+    }, exp.period), /*#__PURE__*/React.createElement("div", {
+      className: "exp-company"
+    }, exp.co), /*#__PURE__*/React.createElement("span", {
+      className: "exp-badge ".concat(exp.badge)
+    }, exp.badgeText)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      className: "exp-role"
+    }, exp.role), /*#__PURE__*/React.createElement("ul", {
+      className: "exp-list"
+    }, exp.items.map(function (item, i) {
+      return /*#__PURE__*/React.createElement("li", {
+        key: i
+      }, item);
+    }))));
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "edu-wrap",
+    id: "education"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "edu-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sec-header reveal"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sec-num"
+  }, "05 \u2014 Education"), /*#__PURE__*/React.createElement("h2", {
+    className: "sec-title"
+  }, "Academic ", /*#__PURE__*/React.createElement("em", null, "roots"), ".")), /*#__PURE__*/React.createElement("div", {
+    className: "edu-grid"
+  }, [{
+    school: 'Stevens Institute of Technology',
+    deg: 'Master of Science, Computer Science',
+    stripe: 'rust',
+    pills: ['GPA 3.8', '2024–2026', 'Hoboken NJ'],
+    courses: 'Artificial Intelligence · NLP · GenAI · Advanced Algorithms · Prompt Engineering'
+  }, {
+    school: 'Mumbai University',
+    deg: 'Bachelor of Engineering, Information Technology',
+    stripe: 'teal',
+    pills: ['GPA 4.0', '2019–2023', 'Mumbai IN'],
+    courses: 'Machine Learning · Data Science · Business Intelligence · Data Analytics · AWS · Computer Networks'
+  }].map(function (e) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: e.school,
+      className: "edu-card reveal"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "edu-stripe ".concat(e.stripe)
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "edu-school"
+    }, e.school), /*#__PURE__*/React.createElement("div", {
+      className: "edu-deg"
+    }, e.deg), /*#__PURE__*/React.createElement("div", {
+      className: "edu-pills"
+    }, e.pills.map(function (p) {
+      return /*#__PURE__*/React.createElement("span", {
+        key: p,
+        className: "edu-pill"
+      }, p);
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "edu-courses"
+    }, e.courses));
+  })))), /*#__PURE__*/React.createElement("section", {
+    id: "contact",
+    style: {
+      background: 'var(--sand)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "contact-wrap"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "contact-title reveal"
+  }, "Let's build", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("em", null, "something great.")), /*#__PURE__*/React.createElement("p", {
+    className: "contact-sub reveal"
+  }, "Seeking ", /*#__PURE__*/React.createElement("strong", null, "AI Engineer"), " and ", /*#__PURE__*/React.createElement("strong", null, "Software Engineer"), " roles. Based in New York City Metropolitian Area \u2014 available June 2026."), /*#__PURE__*/React.createElement("div", {
+    className: "contact-grid reveal"
+  }, [{
+    href: 'mailto:amaan.faruk@gmail.com',
+    label: 'Email',
+    icon: /*#__PURE__*/React.createElement("svg", {
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+    }))
+  }, {
+    href: 'https://github.com/Amaan1001',
+    label: 'GitHub',
+    icon: /*#__PURE__*/React.createElement("svg", {
+      viewBox: "0 0 24 24",
+      fill: "currentColor"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2Z"
+    }))
+  }, {
+    href: 'https://www.linkedin.com/in/amaan-shaikh-aa592b221/',
+    label: 'LinkedIn',
+    icon: /*#__PURE__*/React.createElement("svg", {
+      viewBox: "0 0 24 24",
+      fill: "currentColor"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+    }))
+  }, {
+    href: 'tel:2015265189',
+    label: '(201) 526-5189',
+    icon: /*#__PURE__*/React.createElement("svg", {
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5"
+    }, /*#__PURE__*/React.createElement("path", {
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      d: "M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"
+    }))
+  }].map(function (l) {
+    return /*#__PURE__*/React.createElement("a", {
+      key: l.label,
+      href: l.href,
+      target: l.href.startsWith('http') ? '_blank' : undefined,
+      rel: "noopener",
+      className: "clink"
+    }, l.icon, l.label);
+  })))), /*#__PURE__*/React.createElement("footer", null, /*#__PURE__*/React.createElement("span", null, "\xA9 2025 Amaan Farooque Shaikh"), /*#__PURE__*/React.createElement("span", null, "Hoboken, NJ \xB7 Stevens Institute of Technology")));
 }
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
 </script>
 </body>
 </html>
